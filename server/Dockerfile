@@ -1,4 +1,4 @@
-FROM node:16-alpine AS BUILD_IMAGE
+FROM node:16-alpine AS build_image
 
 
 # install dependencies
@@ -21,7 +21,7 @@ FROM node:16-alpine
 WORKDIR /app
 COPY --from=0 /app .
 
-ENV PORT 8080
+ENV PORT=8080
 EXPOSE 8080
 
 CMD ["node", "./build/src/server.js"]
