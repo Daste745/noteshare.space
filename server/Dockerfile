@@ -2,6 +2,11 @@ FROM node:16-alpine AS build_image
 
 
 # install dependencies
+RUN apk update \
+    && apk add --no-cache openssl \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/cache/apk/*
+
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -15,6 +20,7 @@ RUN npm run build
 
 # remove development dependencies
 RUN npm prune --production
+
 
 FROM node:16-alpine
 
