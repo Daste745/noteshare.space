@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: Run tests
-    uses: ${{ github.repository }}/.github/workflows/test.yaml@master
+    uses: ./test.yaml@master
 
   publish_server:
     name: Build and publish Docker Image (server)
