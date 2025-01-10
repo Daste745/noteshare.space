@@ -1,4 +1,4 @@
-FROM node:16-slim AS build_image
+FROM node:16-alpine AS build_image
 
 
 # install dependencies
